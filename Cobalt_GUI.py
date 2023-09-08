@@ -141,15 +141,17 @@ def download_video():
 window = tk.Tk()
 window.title("pyCobalt Downloader")
 window.geometry("640x480")
+window.resizable(False, False)
+window.attributes('-topmost', 1)
 
 # Label and Entry for Video URL
-video_url_label = tk.Label(window, text="Enter Video URL:")
+video_url_label = ttk.Label(window, text="Enter Video URL:")
 video_url_label.pack()
-video_url_entry = tk.Entry(window)
+video_url_entry = ttk.Entry(window)
 video_url_entry.pack()
 
 # Download Button
-download_button = tk.Button(window, text="Download Media", command=download_video)
+download_button = ttk.Button(window, text="Download Media", command=download_video)
 download_button.pack()
 
 # Start the tkinter main loop
