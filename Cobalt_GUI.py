@@ -2,6 +2,7 @@ import requests
 import json
 import tkinter as tk
 from tkinter import filedialog
+import tkinter.ttk as ttk
 import os
 import re
 
@@ -138,7 +139,8 @@ def download_video():
 
 # Create the tkinter window
 window = tk.Tk()
-window.title("Video Downloader")
+window.title("pyCobalt Downloader")
+window.geometry("640x480")
 
 # Label and Entry for Video URL
 video_url_label = tk.Label(window, text="Enter Video URL:")
@@ -147,7 +149,7 @@ video_url_entry = tk.Entry(window)
 video_url_entry.pack()
 
 # Download Button
-download_button = tk.Button(window, text="Download Video", command=download_video)
+download_button = tk.Button(window, text="Download Media", command=download_video)
 download_button.pack()
 
 # Start the tkinter main loop
