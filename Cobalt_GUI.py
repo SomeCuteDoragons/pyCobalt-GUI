@@ -6,19 +6,17 @@ import os
 
 # Function to handle the download button click
 def download_video():
-    global file_path_entry, video_url_entry
+    global video_url_entry
 
-    # Get the directory path and video URL from the input fields
-    download_dir = directory_path.get()
+    # Get the video URL from the input field
     video_url = video_url_entry.get()
 
-    if not download_dir or not video_url:
-        print("Please enter a directory path and a video URL.")
+    if not video_url:
+        print("Please enter a video URL.")
         return
 
     # Use the file dialog to choose the download location
     file_path = filedialog.asksaveasfilename(
-        initialdir=download_dir,
         defaultextension=".mp4",
         filetypes=[("MP4 files", "*.mp4")]
     )
@@ -97,13 +95,6 @@ def download_video():
 window = tk.Tk()
 window.title("Video Downloader")
 
-# Label and Entry for Directory Path
-directory_path_label = tk.Label(window, text="Enter Directory Path:")
-directory_path_label.pack()
-directory_path = tk.StringVar()
-directory_path_entry = tk.Entry(window, textvariable=directory_path)
-directory_path_entry.pack()
-
 # Label and Entry for Video URL
 video_url_label = tk.Label(window, text="Enter Video URL:")
 video_url_label.pack()
@@ -116,4 +107,3 @@ download_button.pack()
 
 # Start the tkinter main loop
 window.mainloop()
-
