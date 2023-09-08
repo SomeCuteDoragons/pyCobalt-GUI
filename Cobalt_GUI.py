@@ -104,7 +104,7 @@ def download_video():
 
 # Create the tkinter window
 window = tk.Tk()
-window.title("Video Downloader")
+window.title("pyCobalt GUI")
 
 # Label and Entry for Video URL
 video_url_label = tk.Label(window, text="Enter Video URL:")
