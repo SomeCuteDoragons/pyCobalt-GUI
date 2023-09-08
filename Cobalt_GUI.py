@@ -9,7 +9,7 @@ import re
 video_url = ""
 vCodec = "h264"
 vQuality = "720"
-aFormat = "mp3"  # Please don't set to best
+aFormat = "mp3"  # Please don't set to best :)
 isAudioOnly = False
 isNoTTWatermark = False
 isTTFullAudio = False
