@@ -3,17 +3,29 @@ import json
 import tkinter as tk
 from tkinter import filedialog
 import os
+import re
 
 # Define variables for the request body values
 video_url = ""
 vCodec = "h264"
 vQuality = "720"
-aFormat = "mp3"
+aFormat = "mp3"  # Please don't set to best
 isAudioOnly = False
 isNoTTWatermark = False
 isTTFullAudio = False
 isAudioMuted = False
 dubLang = False
+
+# Function to extract the file extension from the Content-Disposition header
+def extract_file_extension(response):
+    content_disposition = response.headers.get('Content-Disposition')
+    if content_disposition:
+        match = re.search(r'filename="(.+)"', content_disposition)
+        if match:
+            filename = match.group(1)
+            _, file_extension = os.path.splitext(filename)
+            return file_extension.lower()
+    return None
 
 # Function to handle the download button click
 def download_video():
@@ -26,10 +38,32 @@ def download_video():
         print("Please enter a video URL.")
         return
 
+    # Determine the file extension based on the selected video codec or audio format
+    if not isAudioOnly:
+        if vCodec.lower() in ("h264", "av1"):
+            file_extension = ".mp4"
+        elif vCodec.lower() == "vp9":
+            file_extension = ".webm"
+        else:
+            print(f"Invalid vCodec value: {vCodec}")
+            return
+    else:
+        if aFormat.lower() == "mp3":
+            file_extension = ".mp3"
+        elif aFormat.lower() == "ogg":
+            file_extension = ".ogg"
+        elif aFormat.lower() == "wav":
+            file_extension = ".wav"
+        elif aFormat.lower() == "opus":
+            file_extension = ".opus"
+        else:
+            print(f"Invalid aFormat value: {aFormat}")
+            return
+
     # Use the file dialog to choose the download location
     file_path = filedialog.asksaveasfilename(
-        defaultextension=".mp4",
-        filetypes=[("MP4 files", "*.mp4")]
+        defaultextension=file_extension,
+        filetypes=[(f"{file_extension[1:].upper()} files", "*" + file_extension)]
     )
 
     if not file_path:
@@ -104,7 +138,7 @@ def download_video():
 
 # Create the tkinter window
 window = tk.Tk()
-window.title("pyCobalt GUI")
+window.title("Video Downloader")
 
 # Label and Entry for Video URL
 video_url_label = tk.Label(window, text="Enter Video URL:")
