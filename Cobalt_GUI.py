@@ -4,9 +4,20 @@ import tkinter as tk
 from tkinter import filedialog
 import os
 
+# Define variables for the request body values
+video_url = ""
+vCodec = "h264"
+vQuality = "720"
+aFormat = "mp3"
+isAudioOnly = False
+isNoTTWatermark = False
+isTTFullAudio = False
+isAudioMuted = False
+dubLang = False
+
 # Function to handle the download button click
 def download_video():
-    global video_url_entry
+    global video_url, vCodec, vQuality, aFormat, isAudioOnly, isNoTTWatermark, isTTFullAudio, isAudioMuted, dubLang
 
     # Get the video URL from the input field
     video_url = video_url_entry.get()
@@ -34,17 +45,17 @@ def download_video():
     # Construct the full API URL
     api_url = base_url + endpoint
 
-    # Define the request body parameters
+    # Define the request body parameters using the variables
     request_body = {
         "url": video_url,
-        "vCodec": "h264",
-        "vQuality": "720",
-        "aFormat": "mp3",
-        "isAudioOnly": False,
-        "isNoTTWatermark": False,
-        "isTTFullAudio": False,
-        "isAudioMuted": False,
-        "dubLang": False
+        "vCodec": vCodec,
+        "vQuality": vQuality,
+        "aFormat": aFormat,
+        "isAudioOnly": isAudioOnly,
+        "isNoTTWatermark": isNoTTWatermark,
+        "isTTFullAudio": isTTFullAudio,
+        "isAudioMuted": isAudioMuted,
+        "dubLang": dubLang
     }
 
     # Define the headers with the "Accept" header set to "application/json"
