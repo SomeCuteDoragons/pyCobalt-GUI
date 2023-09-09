@@ -4,7 +4,8 @@ import tkinter as tk
 from tkinter import filedialog
 import os
 
-# Special thanks to mikhail from cobaltcord for the code makeover
+# Special thanks to mikhail from cobaltcord for the code makeover of the part that downloads the video/audio :3
+# Special thanks for cobaltcord and chatgpt for help
 
 # Global variables / magic values
 VIDEO_CODECS = {
