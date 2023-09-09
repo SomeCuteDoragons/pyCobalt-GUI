@@ -27,7 +27,7 @@ video_url = ""
 video_codec = "h264"
 video_quality = "720"
 audio_format = "mp3"  # Still can't set it to best
-is_audio_only = True
+is_audio_only = False
 disable_tiktok_watermark = False
 is_tiktok_full_audio = False
 is_audio_muted = False
@@ -51,6 +51,10 @@ def on_select_audio_format(event):
 def on_select_video_codec(event):
     global video_codec
     video_codec = video_codec_combobox.get()
+    
+def on_audio_only_toggle():
+    global is_audio_only
+    is_audio_only = audio_only_var.get()
 
 # Function to handle the download button click
 def download_video():
@@ -164,22 +168,30 @@ def main():
     video_url_entry.place(x=95, y=150, height=30)
 
     audio_format_label = ttk.Label(window, text="Select Audio Format:")
-    audio_format_label.place(x=280, y=200)
+    audio_format_label.place(x=95, y=200)
 
     audio_formats = ["mp3", "wav", "opus", "ogg"]
     audio_format_combobox = ttk.Combobox(window, values=audio_formats)
     audio_format_combobox.set(audio_format)
     audio_format_combobox.bind("<<ComboboxSelected>>", on_select_audio_format)
-    audio_format_combobox.place(x=280, y=240)
+    audio_format_combobox.place(x=280, y=200)
 
     video_codec_label = ttk.Label(window, text="Select Video Codec:")
-    video_codec_label.place(x=280, y=290)
+    video_codec_label.place(x=95, y=250)
 
     video_codecs = list(VIDEO_CODECS.keys())
     video_codec_combobox = ttk.Combobox(window, values=video_codecs)
     video_codec_combobox.set(video_codec)
     video_codec_combobox.bind("<<ComboboxSelected>>", on_select_video_codec)
-    video_codec_combobox.place(x=280, y=330)
+    video_codec_combobox.place(x=280, y=250)
+    
+    # Create a Checkbutton for audio_only
+    audio_only_var = tk.BooleanVar()
+    def on_audio_only_toggle():
+        global is_audio_only
+        is_audio_only = audio_only_var.get()
+    audio_only_checkbox = ttk.Checkbutton(window, text="Audio Only", variable=audio_only_var, command=on_audio_only_toggle)
+    audio_only_checkbox.place(x=95, y=300)
 
     download_button = ttk.Button(window, text="Download Media", command=download_video)
     download_button.place(x=275, y=380)
