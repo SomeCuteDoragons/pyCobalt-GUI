@@ -1,6 +1,8 @@
+from turtle import title
 import requests
 import json
 import tkinter as tk
+from tkinter import ttk
 from tkinter import filedialog
 import os
 
@@ -25,7 +27,7 @@ video_url = ""
 video_codec = "h264"
 video_quality = "720"
 audio_format = "mp3"  # Still can't set it to best
-is_audio_only = True
+is_audio_only = False
 disable_tiktok_watermark = False
 is_tiktok_full_audio = False
 is_audio_muted = False
@@ -142,16 +144,23 @@ def main():
     # Create the tkinter window
     window = tk.Tk()
     window.title("pyCobalt GUI")
+    window.geometry("650x480+600+250")
+    window.resizable(False, False)
+    window.attributes('-topmost', 1)
 
     # Label and Entry for Video URL
-    video_url_label = tk.Label(window, text="Enter Video URL:")
-    video_url_label.pack()
-    video_url_entry = tk.Entry(window)
-    video_url_entry.pack()
+    title_label = ttk.Label(window, text="pyCobalt", font=("Segoe_UI 20"))
+    title_label.place(x=270, y=10)
+
+    video_url_label = ttk.Label(window, text="Enter Video URL:")
+    video_url_label.place(x=280, y=105)
+    
+    video_url_entry = ttk.Entry(window, width=40, font=("Arial 16"))
+    video_url_entry.place(x=95, y=150, height=30)
 
     # Download Button
-    download_button = tk.Button(window, text="Download Media", command=download_video)
-    download_button.pack()
+    download_button = ttk.Button(window, text="Download Media", command=download_video)
+    download_button.place(x=275, y=300)
 
     # Start the tkinter main loop
     window.mainloop()
