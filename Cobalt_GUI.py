@@ -148,7 +148,7 @@ def main():
     window.resizable(False, False)
     window.attributes('-topmost', 1)
 
-    # Label and Entry for Video URL
+    # Label and Entry for Video URL!
     title_label = ttk.Label(window, text="pyCobalt", font=("Segoe_UI 20"))
     title_label.place(x=270, y=10)
 
