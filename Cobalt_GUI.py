@@ -224,7 +224,7 @@ def main():
         global is_audio_only
         is_audio_only = audio_only_var.get()
     audio_only_checkbox = ttk.Checkbutton(window, text="Audio Only", variable=audio_only_var, command=on_audio_only_toggle)
-    audio_only_checkbox.place(x=95, y=290)
+    audio_only_checkbox.place(x=95, y=285)
     
     # Create a Checkbutton for disable_tiktok_watermark
     tiktok_watermark_var = tk.BooleanVar()
@@ -233,17 +233,44 @@ def main():
         disable_tiktok_watermark = tiktok_watermark_var.get()
 
     tiktok_watermark_checkbox = ttk.Checkbutton(window, text="Hide TikTok Watermark", variable=tiktok_watermark_var, command=on_tiktok_watermark_toggle)
-    tiktok_watermark_checkbox.place(x=280, y=290)
+    tiktok_watermark_checkbox.place(x=280, y=285)
     
     # Create a Checkbutton for is_tiktok_full_audio
     is_tiktok_full_audio_var = tk.BooleanVar()
     def is_tiktok_full_audio_toggle():
         global is_tiktok_full_audio
         is_tiktok_full_audio = is_tiktok_full_audio_var.get()
+        
+    # Create a Checkbutton for is_audio_muted
+    audio_muted_var = tk.BooleanVar()
+    def on_audio_muted_toggle():
+        global is_audio_muted
+        is_audio_muted = audio_muted_var.get()
+
+    audio_muted_checkbox = ttk.Checkbutton(window, text="Mute Audio", variable=audio_muted_var, command=on_audio_muted_toggle)
+    audio_muted_checkbox.place(x=280, y=315)
+
 
     is_tiktok_full_audio_checkbox = ttk.Checkbutton(window, text="Get Original TikTok Audio", variable=is_tiktok_full_audio_var, command=is_tiktok_full_audio_toggle)
-    is_tiktok_full_audio_checkbox.place(x=95, y=320)
+    is_tiktok_full_audio_checkbox.place(x=95, y=315)
+    
+    # Create a Checkbutton for dub_lang
+    dub_lang_var = tk.BooleanVar()
+    def on_dub_lang_toggle():
+        global dub_lang
+        dub_lang = dub_lang_var.get()
 
+    dub_lang_checkbox = ttk.Checkbutton(window, text="Dubbed Language", variable=dub_lang_var, command=on_dub_lang_toggle)
+    dub_lang_checkbox.place(x=95, y=345)
+
+    # Create a Checkbutton for disableMetadata
+    disable_metadata_var = tk.BooleanVar()
+    def on_disable_metadata_toggle():
+        global disableMetadata
+        disableMetadata = disable_metadata_var.get()
+
+    disable_metadata_checkbox = ttk.Checkbutton(window, text="Disable Metadata", variable=disable_metadata_var, command=on_disable_metadata_toggle)
+    disable_metadata_checkbox.place(x=280, y=345)
 
     download_button = ttk.Button(window, text="Download Media", command=download_video)
     download_button.place(x=160, y=380)
