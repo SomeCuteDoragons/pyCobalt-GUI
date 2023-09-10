@@ -185,7 +185,7 @@ def main():
     video_codec_combobox.bind("<<ComboboxSelected>>", on_select_video_codec)
     video_codec_combobox.place(x=280, y=250)
     
-    # Create a Checkbutton for audio_only
+    # Create a Checkbutton for audio_only dingle bingle
     audio_only_var = tk.BooleanVar()
     def on_audio_only_toggle():
         global is_audio_only
