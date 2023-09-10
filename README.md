@@ -4,6 +4,12 @@ GUI media downloader based on Python code utilising Cobalt's API
 
 Work in progress
 
-Dependencies: you have to install requests until I make you an exe
+# How do I run it?
 
-oh and this will not run on anything before Python 3.7
+1. Install Python (3.7 or newer)
+
+2. Install requests using the `pip install reuqests` in your system terminal (like powershell or something
+
+3. Run the python script
+
+4. Profit
