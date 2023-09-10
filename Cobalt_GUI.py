@@ -32,6 +32,7 @@ disable_tiktok_watermark = False
 is_tiktok_full_audio = False
 is_audio_muted = False
 dub_lang = False
+disableMetadata = False
 
 
 # Function that makes the size in bytes as an human-readable string
@@ -58,7 +59,7 @@ def on_audio_only_toggle():
 
 # Function to handle the download button click
 def download_video():
-    global video_url, video_codec, video_quality, audio_format, is_audio_only, disable_tiktok_watermark, is_tiktok_full_audio, is_audio_muted, dub_lang
+    global video_url, video_codec, video_quality, audio_format, is_audio_only, disable_tiktok_watermark, is_tiktok_full_audio, is_audio_muted, dub_lang, disableMetadata
 
     # Get the video URL from the input field
     video_url = video_url_entry.get()
@@ -90,7 +91,8 @@ def download_video():
         "isNoTTWatermark": disable_tiktok_watermark,
         "isTTFullAudio": is_tiktok_full_audio,
         "isAudioMuted": is_audio_muted,
-        "dubLang": dub_lang
+        "dubLang": dub_lang,
+        "disableMetadata": disableMetadata
     }
 
     # Define the headers with the "Accept" header set to "application/json"
