@@ -165,6 +165,16 @@ def main():
 
     video_url_label = ttk.Label(window, text="Enter Video URL:")
     video_url_label.place(x=280, y=105)
+    
+    def paste_from_clipboard():
+        clipboard_text = window.clipboard_get()
+        video_url_entry.delete(0, tk.END)
+        video_url_entry.insert(0, clipboard_text)
+
+
+    paste_button = ttk.Button(window, text="Paste from Clipboard", command=paste_from_clipboard)
+    paste_button.place(x=355, y=382)  # Adjust the coordinates as needed
+
 
     video_url_entry = ttk.Entry(window, width=40, font=("Arial 16"))
     video_url_entry.place(x=95, y=150, height=30)
@@ -214,7 +224,7 @@ def main():
         global is_audio_only
         is_audio_only = audio_only_var.get()
     audio_only_checkbox = ttk.Checkbutton(window, text="Audio Only", variable=audio_only_var, command=on_audio_only_toggle)
-    audio_only_checkbox.place(x=95, y=300)
+    audio_only_checkbox.place(x=95, y=290)
     
     # Create a Checkbutton for disable_tiktok_watermark
     tiktok_watermark_var = tk.BooleanVar()
@@ -223,7 +233,7 @@ def main():
         disable_tiktok_watermark = tiktok_watermark_var.get()
 
     tiktok_watermark_checkbox = ttk.Checkbutton(window, text="Hide TikTok Watermark", variable=tiktok_watermark_var, command=on_tiktok_watermark_toggle)
-    tiktok_watermark_checkbox.place(x=280, y=300)
+    tiktok_watermark_checkbox.place(x=280, y=290)
     
     # Create a Checkbutton for is_tiktok_full_audio
     is_tiktok_full_audio_var = tk.BooleanVar()
@@ -232,11 +242,14 @@ def main():
         is_tiktok_full_audio = is_tiktok_full_audio_var.get()
 
     is_tiktok_full_audio_checkbox = ttk.Checkbutton(window, text="Get Original TikTok Audio", variable=is_tiktok_full_audio_var, command=is_tiktok_full_audio_toggle)
-    is_tiktok_full_audio_checkbox.place(x=95, y=325)
+    is_tiktok_full_audio_checkbox.place(x=95, y=320)
 
 
     download_button = ttk.Button(window, text="Download Media", command=download_video)
-    download_button.place(x=275, y=400)
+    download_button.place(x=160, y=380)
+
+    notelabel = ttk.Label(window, text="h264 tops up at 1080p, AV1 supports 8K and HDR but has little player support and VP9 tops up at 4K and wih HDR")
+    notelabel.place(x=30, y=415)
 
     window.mainloop()
 
