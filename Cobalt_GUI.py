@@ -194,9 +194,28 @@ def main():
         is_audio_only = audio_only_var.get()
     audio_only_checkbox = ttk.Checkbutton(window, text="Audio Only", variable=audio_only_var, command=on_audio_only_toggle)
     audio_only_checkbox.place(x=95, y=300)
+    
+    # Create a Checkbutton for disable_tiktok_watermark
+    tiktok_watermark_var = tk.BooleanVar()
+    def on_tiktok_watermark_toggle():
+        global disable_tiktok_watermark
+        disable_tiktok_watermark = tiktok_watermark_var.get()
+
+    tiktok_watermark_checkbox = ttk.Checkbutton(window, text="Hide TikTok Watermark", variable=tiktok_watermark_var, command=on_tiktok_watermark_toggle)
+    tiktok_watermark_checkbox.place(x=280, y=300)
+    
+    # Create a Checkbutton for is_tiktok_full_audio
+    is_tiktok_full_audio_var = tk.BooleanVar()
+    def is_tiktok_full_audio_toggle():
+        global is_tiktok_full_audio
+        is_tiktok_full_audio = is_tiktok_full_audio_var.get()
+
+    is_tiktok_full_audio_checkbox = ttk.Checkbutton(window, text="Get Original TikTok Audio", variable=is_tiktok_full_audio_var, command=is_tiktok_full_audio_toggle)
+    is_tiktok_full_audio_checkbox.place(x=95, y=325)
+
 
     download_button = ttk.Button(window, text="Download Media", command=download_video)
-    download_button.place(x=275, y=380)
+    download_button.place(x=275, y=400)
 
     window.mainloop()
 
