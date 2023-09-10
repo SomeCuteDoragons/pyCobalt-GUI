@@ -179,14 +179,35 @@ def main():
     audio_format_combobox.place(x=280, y=200)
 
     video_codec_label = ttk.Label(window, text="Select Video Codec:")
-    video_codec_label.place(x=95, y=250)
+    video_codec_label.place(x=95, y=225)
 
     video_codecs = list(VIDEO_CODECS.keys())
     video_codec_combobox = ttk.Combobox(window, values=video_codecs)
     video_codec_combobox.set(video_codec)
     video_codec_combobox.bind("<<ComboboxSelected>>", on_select_video_codec)
-    video_codec_combobox.place(x=280, y=250)
+    video_codec_combobox.place(x=280, y=225)
     
+    # Create a Label for video quality
+    video_quality_label = ttk.Label(window, text="Select Video Quality:")
+    video_quality_label.place(x=95, y=250)
+
+    # Define the video quality options
+    video_quality_options = ["360", "480", "720", "1080", "1440", "2160", "max"]
+
+    # Create a Combobox for video quality
+    video_quality_combobox = ttk.Combobox(window, values=video_quality_options)
+    video_quality_combobox.set(video_quality)
+    video_quality_combobox.place(x=280, y=250)
+
+    # Function to handle the selection of video quality
+    def on_select_video_quality(event):
+        global video_quality
+        video_quality = video_quality_combobox.get()
+
+    # Bind the function to the Combobox selection event
+    video_quality_combobox.bind("<<ComboboxSelected>>", on_select_video_quality)
+
+
     # Create a Checkbutton for audio_only dingle bingle
     audio_only_var = tk.BooleanVar()
     def on_audio_only_toggle():
