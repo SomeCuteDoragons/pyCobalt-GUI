@@ -29,6 +29,6 @@ Second method
 
 #
 
-Cobalt was made by [wukko](https://github.com/wukko), please [donate](https://boosty.to/wukko/donate) to them if you can. :3
+Cobalt was made by [wukko](https://github.com/wukko), please [donate](https://boosty.to/wukko/donate) to them if you can. :33
 
 pyCobalt was made by me with help from cobaltcord and chatgpt with love.
