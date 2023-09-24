@@ -8,6 +8,7 @@ import os
 
 # Special thanks to mikhail from cobaltcord for the code makeover of the part that downloads the video/audio :3
 # Special thanks to cobaltcord and chatgpt for help
+# You don't know what this comment is for :wink:
 
 # Global variables / magic values
 VIDEO_CODECS = {
