@@ -154,9 +154,12 @@ def download_video():
 
 # Function to open a new Tkinter window
 def open_new_window():
-    new_window = tk.Toplevel()
-    new_window.title("Advanced Settings")
-    new_window.geometry("350x350+770+325")
+    advWin = tk.Toplevel()
+    advWin.title("Advanced Options")
+    advWin.geometry("350x350+770+325")
+    
+    releaseVersion = ttk.Label(advWin, text="Version: Pre-Prerelease C1") # Monika please remember to change this
+    releaseVersion.place(x=100, y=5)
 
 
 def main():
