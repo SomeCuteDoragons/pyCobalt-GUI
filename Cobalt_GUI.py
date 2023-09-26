@@ -1,3 +1,4 @@
+from platform import release
 from turtle import title
 import requests
 import json
@@ -151,6 +152,12 @@ def download_video():
     current_file_size = humanize_size(current_file_size)
     print(f"File '{file_path}' has been downloaded and saved. File size is {current_file_size}")
 
+# Function to open a new Tkinter window
+def open_new_window():
+    new_window = tk.Toplevel()
+    new_window.title("Advanced Settings")
+    new_window.geometry("350x350+770+325")
+
 
 def main():
     global video_url_entry, audio_format_combobox, video_codec_combobox
@@ -159,7 +166,7 @@ def main():
     window.title("pyCobalt GUI")
     window.geometry("650x480+600+250")
     window.resizable(False, False)
-    window.attributes('-topmost', 1)
+    
 
     title_label = ttk.Label(window, text="pyCobalt", font=("Segoe_UI 20"))
     title_label.place(x=270, y=10)
@@ -174,7 +181,7 @@ def main():
 
 
     paste_button = ttk.Button(window, text="Paste from Clipboard", command=paste_from_clipboard)
-    paste_button.place(x=355, y=382)  # Adjust the coordinates as needed
+    paste_button.place(x=250, y=380)  # Adjust the coordinates as needed
 
 
     video_url_entry = ttk.Entry(window, width=40, font=("Arial 16"))
@@ -274,10 +281,14 @@ def main():
     disable_metadata_checkbox.place(x=280, y=345)
 
     download_button = ttk.Button(window, text="Download Media", command=download_video)
-    download_button.place(x=160, y=380)
+    download_button.place(x=95, y=380)
 
     notelabel = ttk.Label(window, text="h264 tops up at 1080p, AV1 supports 8K and HDR but has little player support and VP9 tops up at 4K and wih HDR")
     notelabel.place(x=30, y=415)
+
+    open_window_button = ttk.Button(window, text="Advanced Options", command=open_new_window)
+    open_window_button.place(x=420, y=380)
+
 
     window.mainloop()
 
