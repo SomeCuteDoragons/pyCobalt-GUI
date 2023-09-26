@@ -20,7 +20,7 @@ First method
 2. Run the code
 3. Profit
 
-Second method
+Second method [Has more frequent and unfinished updates]
 
 1. Install [Python](https://www.python.org/downloads/) (3.7 or newer is supported)
 2. Install [Requests](https://pypi.org/project/requests/) using the `pip install requests` in your favourite terminal (like PowerShell or something)
