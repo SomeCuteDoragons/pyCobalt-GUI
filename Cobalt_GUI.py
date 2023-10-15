@@ -158,8 +158,11 @@ def open_new_window():
     advWin.title("Advanced Options")
     advWin.geometry("350x350+770+325")
     
-    releaseVersion = ttk.Label(advWin, text="Version: Pre-Prerelease C1") # Monika please remember to change this
+    releaseVersion = ttk.Label(advWin, text="Version: Undefined") # Monika please remember to change this
     releaseVersion.place(x=100, y=5)
+    
+    crdts = ttk.Label(advWin, text="Made with passion by Monika with help of others")
+    crdts.place(x=40, y=25)
 
 
 def main():
