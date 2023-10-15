@@ -35,6 +35,7 @@ is_tiktok_full_audio = False
 is_audio_muted = False
 dub_lang = False
 disableMetadata = False
+filename_pattern = "basic"
 
 
 # Function that makes the size in bytes as an human-readable string
@@ -61,7 +62,7 @@ def on_audio_only_toggle():
 
 # Function to handle the download button click
 def download_video():
-    global video_url, video_codec, video_quality, audio_format, is_audio_only, disable_tiktok_watermark, is_tiktok_full_audio, is_audio_muted, dub_lang, disableMetadata
+    global video_url, video_codec, video_quality, audio_format, is_audio_only, disable_tiktok_watermark, is_tiktok_full_audio, is_audio_muted, dub_lang, disableMetadata, filename_pattern
 
     # Get the video URL from the input field
     video_url = video_url_entry.get()
@@ -89,6 +90,7 @@ def download_video():
         "vCodec": video_codec,
         "vQuality": video_quality,
         "aFormat": audio_format,
+        "filenamePattern": filename_pattern,
         "isAudioOnly": is_audio_only,
         "isNoTTWatermark": disable_tiktok_watermark,
         "isTTFullAudio": is_tiktok_full_audio,
